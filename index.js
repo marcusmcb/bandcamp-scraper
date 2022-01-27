@@ -12,26 +12,32 @@ async function scrapeData() {
     const releases = []
 
     listItems.each((idx, el) => {
-      const releaseItem = { title: '', artist: '', artwork: '' }
+      const releaseItem = { id: '', title: '', artist: '', artwork: '', url: '' }
       // scrape title value
       let titleVal = $(el).find('div.collection-item-title').first().text()
       // scrape artist value
       let artistVal = $(el).find('div.collection-item-artist').first().text()
       // scrape image src
       let artwork = $(el).find('img.collection-item-art').attr('src')
-
+      // scrape link back to product page
+      let artistUrl = $(el).find('a.item-link').attr('href')
+      
       // check to see if scraped elements are null/undefined
       // skip them if they are; otherwise, push new obj to array
 
       if (
         titleVal.length != 0 &&
         artistVal.length != 0 &&
-        artwork.length != 0
+        artwork.length != 0 &&
+        artistUrl.length != 0
       ) {
         titleVal = JSON.stringify(titleVal)
         titleVal = titleVal.split('\\')[0]
         titleVal = titleVal.substring(1)
         artistVal = artistVal.substring(3)
+
+        releaseItem.id = idx
+        releaseItem.url = artistUrl
         releaseItem.artwork = artwork
         releaseItem.title = titleVal
         releaseItem.artist = artistVal
