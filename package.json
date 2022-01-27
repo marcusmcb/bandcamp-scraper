@@ -1,0 +1,25 @@
+{
+  "name": "bandcamp-scraper",
+  "version": "1.0.0",
+  "description": "Scraper app to pull data from Bandcamp pages using Cheerio/Axios.\r Marcus McBride, 2022.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusmcb/bandcamp-scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcusmcb/bandcamp-scraper/issues"
+  },
+  "homepage": "https://github.com/marcusmcb/bandcamp-scraper#readme",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "cheerio": "^1.0.0-rc.10",
+    "pretty": "^2.0.0"
+  }
+}
