@@ -1,6 +1,10 @@
+const express = require('express')
 const axios = require('axios')
 const cheerio = require('cheerio')
 const fs = require('fs')
+
+const app = express()
+const PORT = process.env.PORT || 5000
 
 const url = 'https://bandcamp.com/djmarcusmcb'
 
@@ -54,9 +58,19 @@ async function scrapeData() {
       console.log('Successfully written data to file')
       console.log(releases)
     })
+    return releases
   } catch (err) {
     console.error(err)
   }
 }
 
-scrapeData()
+app.get('/', async (req, res) => {
+  let data = await scrapeData()
+  res.send(data)
+})
+
+app.listen(PORT, () => {
+  console.log(`Express app running on PORT ${PORT}`)
+})
+
+
