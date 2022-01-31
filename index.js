@@ -2,6 +2,7 @@ const express = require('express')
 const axios = require('axios')
 const cheerio = require('cheerio')
 const fs = require('fs')
+const cors = require('cors')
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -63,6 +64,8 @@ async function scrapeData() {
     console.error(err)
   }
 }
+
+app.use(cors())
 
 app.get('/', async (req, res) => {
   let data = await scrapeData()
