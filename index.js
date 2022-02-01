@@ -26,6 +26,8 @@ async function scrapeData() {
       let artwork = $(el).find('img.collection-item-art').attr('src')
       // scrape link back to product page
       let artistUrl = $(el).find('a.item-link').attr('href')
+
+      // add logic to scrape audio element src using track id value
       
       // check to see if scraped elements are null/undefined
       // skip them if they are; otherwise, push new obj to array

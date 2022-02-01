@@ -32,7 +32,7 @@ const App = () => {
                 <br />                             
                 <span><a href={item.url}>Link</a></span>               
                 <br/> 
-                <img src={item.artwork} width="300" height="300"></img>     
+                <img src={item.artwork} width="300" height="300" alt={item.title}></img>     
                 <hr />
               </div>
             </Fragment>
