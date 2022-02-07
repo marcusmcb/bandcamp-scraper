@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import './App.css'
 
-import InfoCard from './components/infoCard'
+import InfoCard from './components/infoCard.js'
 
 const App = () => {
   const [items, setItems] = useState({})

@@ -1,8 +1,11 @@
 import React from 'react';
+import Card from '@mui/material/Card';
 
 const infoCard = () => {
   return (
-    <p>Info Card</p>
+    <Card>
+      <p>Card</p>
+    </Card>
   )
 }
 
