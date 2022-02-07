@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div className='App'>
       {isBusy ? (
-        <p>Scraping Bandcamp data...</p>
+        <p className='loading'>Scraping Bandcamp data...</p>
       ) : (
         <div className='card-collection'>
           {items.map((item, i) => (
