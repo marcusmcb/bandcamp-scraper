@@ -1,7 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import './App.css'
 
-import InfoCard from './components/infoCard.js'
+import Card from '@mui/material/Card'
+import CardMedia from '@mui/material/CardMedia'
+import CardContent from '@mui/material/CardContent'
+import CardActions from '@mui/material/CardActions'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
 
 const App = () => {
   const [items, setItems] = useState({})
@@ -11,7 +16,7 @@ const App = () => {
     const getData = async () => {
       try {
         let req = await fetch('http://localhost:5000')
-        let response = await req.json()        
+        let response = await req.json()
         return response
       } catch (err) {}
     }
@@ -26,17 +31,30 @@ const App = () => {
       {isBusy ? (
         <p>Scraping Bandcamp data...</p>
       ) : (
-        <div className='item-card'>
+        <div className='card-collection'>
           {items.map((item, i) => (
             <Fragment key={i}>
-              <InfoCard></InfoCard>
-              <div>
-                <span>{item.artist} {item.title}</span>   
-                <br />                             
-                <span><a href={item.url}>Link</a></span>               
-                <br/> 
-                <img src={item.artwork} width="300" height="300" alt={item.title}></img>     
-                <hr />
+              <div className='card-body'>
+                <Card>
+                  <CardMedia
+                    component='img'
+                    image={item.artwork}                    
+                    alt='item artwork'
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant='h5' component='div'>
+                      {item.artist}
+                    </Typography>
+                    <Typography variant='body2' color='text.secondary'>
+                      {item.title}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button>
+                      <a href={item.url}>More...</a>
+                    </Button>
+                  </CardActions>
+                </Card>
               </div>
             </Fragment>
           ))}

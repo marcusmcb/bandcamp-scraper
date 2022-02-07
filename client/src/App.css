@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+.card-collection {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-body {
+  width: 20vw;
+  padding: 15px;
+}
