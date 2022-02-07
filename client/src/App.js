@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import './App.css'
 
+import InfoCard from './components/infoCard'
+
 const App = () => {
   const [items, setItems] = useState({})
   const [isBusy, setIsBusy] = useState(true)
@@ -27,6 +29,7 @@ const App = () => {
         <div className='item-card'>
           {items.map((item, i) => (
             <Fragment key={i}>
+              <InfoCard></InfoCard>
               <div>
                 <span>{item.artist} {item.title}</span>   
                 <br />                             
